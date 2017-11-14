@@ -19,8 +19,41 @@
    <base href=".">
 
    <title>be-Marvelo.us</title>
-  </head>
-  <body>
 
+   <script id="list-template" type="text/x-handlebars-template">
+	    <article class="single-event" data-fetchone="{{id}}">
+        <a href="event/{{id}}"><img src="{{imgUrl}}" /></a>
+        <h3>{{title}}</h3>
+      </article>
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="main-nav">
+        <h1>be-Marvelo.us</h1>
+        <ul>
+          <li class="tab" data-content="home"><a href="">Home</a></li>
+          <li class="tab" data-content="about"><a href="about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- <section class="tab-content">
+        <select id="dropdown">
+          <option value="" selected>--Choose a search criteria--</option>
+          <option value="events">Marvel Events</option>
+        </select>
+      </section> -->
+      <section id="main-list" class="tab-content"></section>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
+    <script src="scripts/models/comics.js"></script>
+    <script src="scripts/views/comicView.js"></script>
   </body>
 </html>
