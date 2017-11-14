@@ -2,23 +2,30 @@
 
 const __API_URL__ = 'http://localhost:3000';
 
-function Event (rawDataObject) {
-  this.title = rawDataObject.results.title;
-  this.id = rawDataObject.results.id;
-  this.imgUrl = `${rawDataObject.results.thumbnail.path}${rawDataObject.results.thumbnail.extension}`;
-  this.comics = rawDataObject.results.comics.items;
-  this.characters = rawDataObject.results.characters.items;
+function Event (results) {
+  this.title = results.title;
+  this.id = results.id;
+  this.imgUrl = `${results.thumbnail.path}.${results.thumbnail.extension}`;
+  this.comics = results.comics.items;
+  this.characters = results.characters.items;
 }
 
 Event.all = [];
 
-Event.loadAll = rawData => {
-  Event.all = rawData.map(eventObj => new Event(eventObj));
+Event.loadAll = results => {
+  Event.all = results.map(event => {
+    console.log(event);
+    return new Event(event);
+  })
 };
 
-Event.fetchAll = callback => {
+Event.fetchAll = () => {
   $.get(`${__API_URL__}/events`)
-    .then(Event.loadAll)
-    .then(callback)
-    .catch(console.error(err));
+    .then(object => {
+      let results = object.data.results;
+      console.log(results);
+      return results;
+    })
+    .then((results) => Event.loadAll(results))
+    .catch();
 }

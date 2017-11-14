@@ -16,7 +16,7 @@ app.get('/events', (req, res) => {
   const url = 'https://gateway.marvel.com/v1/public/events?ts=1&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c';
   superagent(url)
     .then(
-      data => res.send(data),
+      data => res.send(data.body),
       err => res.send(err)
     )
 });
