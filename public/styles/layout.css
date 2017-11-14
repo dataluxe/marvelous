@@ -17,16 +17,22 @@ header {
 h1 {
   float: right;
   background-color: #F2282E;
-  padding: 20px 0px;
+  /*padding: 20px 0px;*/
   margin: 0;
   width:82%;
   text-align: center;
   color:snow;
+  height: 77px;
+}
+h1 img {
+  /*height: 77px;*/
+  margin: 10px auto;
+  width: 82%;
 }
 section {
   margin-top: 77px;
   font-family: Bangers;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 nav ul {
@@ -67,7 +73,7 @@ a {
   width: 33%;
 }
 
-img {
+article img {
   width: 100%;
   border: 1px solid black;
   margin-bottom: -4px;
