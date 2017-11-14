@@ -1,7 +1,48 @@
+* {
+  /*border: 1px solid black;*/
+}
+
+body {
+  background-color: snow;
+}
+
+header {
+  background-color: black;
+  height: 77px;
+}
+h1 {
+  float: left;
+  background-color: #F2282E;
+  padding: 20px 0px;
+  margin: 0;
+}
+
+nav ul {
+  display: inline;
+  padding: 0;
+  list-style: none;
+  clear: both;
+  margin: 0 auto;
+
+}
+ nav li {
+   text-align: center;
+ }
+
+nav a {
+  font-family: impact;
+  color: snow;
+}
+
+nav a:visited {
+  color: gray;
+}
+
 article {
   width: 100%;
   display: flex;
   align-items: center;
+  border: 1px solid black;
 }
 
 a {
@@ -10,17 +51,12 @@ a {
 
 img {
   width: 100%;
+  border: 1px solid black;
+  margin-bottom: -4px;
 }
 
 h3 {
   display: inline;
   margin: 0 auto;
-}
-
-body {
-  background-color: #f78b8e;
-}
-
-* {
-  border: 1px solid black;
+  text-align: center;
 }
