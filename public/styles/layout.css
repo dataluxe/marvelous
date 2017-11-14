@@ -9,12 +9,24 @@ body {
 header {
   background-color: black;
   height: 77px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
 }
 h1 {
-  float: left;
+  float: right;
   background-color: #F2282E;
   padding: 20px 0px;
   margin: 0;
+  width:82%;
+  text-align: center;
+  color:snow;
+}
+section {
+  margin-top: 77px;
+  font-family: Bangers;
+  font-size: 23px;
 }
 
 nav ul {
@@ -23,10 +35,16 @@ nav ul {
   list-style: none;
   clear: both;
   margin: 0 auto;
+  position: fixed;
+  top:20px;
+  left:4%;
+
 
 }
  nav li {
    text-align: center;
+   margin-bottom: 5px;
+   margin-top: 0;
  }
 
 nav a {
