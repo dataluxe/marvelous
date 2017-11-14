@@ -1,0 +1,26 @@
+article {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  width: 33%;
+}
+
+img {
+  width: 100%;
+}
+
+h3 {
+  display: inline;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #f78b8e;
+}
+
+* {
+  border: 1px solid black;
+}
