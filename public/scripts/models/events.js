@@ -80,10 +80,16 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
         console.log('ME.fetchOne -> first get.then called.');
         let results = object.data.results;
         console.log(results);
-        return results;
+        return ctx, results;
       })
-      .then(results => Event.loadOne(results))
-      .then(ctx => Event.fetchCharacters(ctx))
+      .then( (ctx, results) => {
+        Event.loadOne(results);
+        return ctx;
+      })
+      .then(ctx => {
+        Event.fetchCharacters(ctx);
+        return ctx;
+      })
       .then(ctx => Event.fetchComics(ctx))
       .then(app.comicView.initFetchOnePage)
       .catch()
