@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-const __API_URL__ = 'https://be-marvelous.herokuapp.com/';
+const __API_URL__ = 'https://be-marvelous.herokuapp.com';
 
 ((module) => {
 
