@@ -56,7 +56,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
   Event.fetchOne = (ctx, callback) => {
     console.log('ME.fetchOne function called.')
     console.log(ctx.path);
-    $.get(`${__API_URL__}/events${ctx.params.id}`, ctx.params.id)
+    $.get(`${__API_URL__}/events/${ctx.params.id}`)
       .then(object => {
         console.log('ME.fetchOne -> first get.then called.');
         let results = object.data.results;
@@ -71,7 +71,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
 
   Event.fetchCharacters = (ctx) => {
     console.log('fetchCharacters function called');
-    $.get(`${__API_URL__}/events/${ctx.params.id}/characters`, ctx.params.id)
+    $.get(`${__API_URL__}/events/${ctx.params.id}/characters`)
       .then(object => {
         let results = object.data.results;
         Event.loadCharacters(results);
@@ -80,7 +80,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
 
   Event.fetchComics = (ctx) => {
     console.log('fetchComics function called');
-    $.get(`${__API_URL__}/events/${ctx.params.id}/comics`, ctx.params.id)
+    $.get(`${__API_URL__}/events/${ctx.params.id}/comics`)
       .then(object => {
         let results = object.data.results;
         Event.loadComics(results);
