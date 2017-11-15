@@ -23,15 +23,15 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
   function Character (obj) {
     this.id = obj.id;
     this.name = obj.name;
-    this.description = obj.description || 'This character is not well-known enough to warrant a description.';
-    this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`;
+    this.description = obj.description || 'This character is not well-known enough to warrant a de  scription.';
+    this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`.replace('http://', 'https://');
   }
 
   function Comic (obj) {
     this.id = obj.id;
     this.title = obj.title;
     this.description = obj.description || 'No description for this comic issue... yet!';
-    this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`;
+    this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`.replace('http://', 'https://');
   }
 
   Event.loadAll = results => {
