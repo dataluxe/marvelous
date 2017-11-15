@@ -28,6 +28,7 @@ h1 img {
   /*height: 77px;*/
   margin: 10px auto;
   width: 82%;
+  max-width: 275px;
 }
 section {
   margin-top: 77px;
@@ -83,4 +84,155 @@ h3 {
   display: inline;
   margin: 0 auto;
   text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+
+  section {
+    text-align: center;
+  }
+  article {
+    display: inline-block;
+  }
+
+  article {
+    width: 24.6%;
+    align-items: baseline;
+    margin: 0 auto;
+    border-width: 0px;
+    margin-bottom: 20px;
+    float: left;
+    height:250px;
+  }
+
+
+
+  article img {
+    border-width: 0px;
+    margin: 0;
+  }
+
+  article div {
+    height: 2em;
+    position: relative;
+  }
+
+  article h3 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    right: 0%;
+  }
+}
+@media only screen and (min-width: 940px) {
+
+  section {
+    text-align: center;
+  }
+  article {
+    display: inline-block;
+  }
+
+  article {
+    width: 19.5%;
+    align-items: baseline;
+    margin: 0 auto;
+    border-width: 0px;
+    margin-bottom: 20px;
+    float: left;
+    height:250px;
+  }
+
+  article img {
+    border-width: 0px;
+    margin: 0;
+  }
+
+  article div {
+    height: 2em;
+    position: relative;
+  }
+
+  article h3 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    right: 0%;
+  }
+}
+@media only screen and (min-width: 1090px) {
+
+  section {
+    text-align: center;
+  }
+  article {
+    display: inline-block;
+  }
+
+  article {
+    width: 16.5%;
+    align-items: baseline;
+    margin: 0 auto;
+    border-width: 0px;
+    margin-bottom: 20px;
+    float: left;
+    height:250px;
+  }
+
+  article img {
+    border-width: 0px;
+    margin: 0;
+  }
+
+  article div {
+    height: 2em;
+    position: relative;
+  }
+
+  article h3 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    right: 0%;
+  }
+}
+@media only screen and (min-width: 1295px) {
+
+  section {
+    text-align: center;
+  }
+  article {
+    display: inline-block;
+  }
+
+  article {
+    width: 16.5%;
+    align-items: baseline;
+    margin: 0 auto;
+    border-width: 0px;
+    margin-bottom: 45px;
+    float: left;
+    height:250px;
+  }
+
+  article img {
+    border-width: 0px;
+    margin: 0;
+  }
+
+  article div {
+    height: 2em;
+    position: relative;
+  }
+
+  article h3 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    right: 0%;
+  }
 }
