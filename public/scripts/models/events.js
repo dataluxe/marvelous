@@ -53,10 +53,12 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
   Event.loadCharacters = results => {
     console.log(`Load Characters`);
     Event.characters = results.map(character => new Character(character));
+    app.comicView.initFetchOnePage();
   }
   Event.loadComics = results => {
     console.log(`Load Comics`);
     Event.comics = results.map(comic => new Comic(comic));
+    app.comicView.initFetchOnePage();
   }
   Event.fetchAll = (ctx, callback) => {
     console.log('ME.fetchAll function called.')
@@ -80,18 +82,10 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
         console.log('ME.fetchOne -> first get.then called.');
         let results = object.data.results;
         console.log(results);
-        return ctx, results;
-      })
-      .then( (ctx, results) => {
         Event.loadOne(results);
-        return ctx;
-      })
-      .then(ctx => {
         Event.fetchCharacters(ctx);
-        return ctx;
+        Event.fetchComics(ctx);
       })
-      .then(ctx => Event.fetchComics(ctx))
-      .then(app.comicView.initFetchOnePage)
       .catch()
   }
 
