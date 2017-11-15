@@ -22,7 +22,7 @@ var testObjects = function() {
       'comics': [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     }
   ];
-  self.comics = [
+  self.characters = [
     {
       'id': 1,
       'name': 'Fight Guy',
@@ -144,7 +144,7 @@ var testObjects = function() {
       'imgPath': 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg'
     }
   ];
-  self.characters = [
+  self.comics = [
     {
       'id': 1,
       'title': 'Storm (2006)',
