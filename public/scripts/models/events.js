@@ -10,6 +10,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     this.id = results.id;
     this.title = results.title;
     this.name = results.name;
+    this.description = results.description;
     this.imgUrl = `${results.thumbnail.path}.${results.thumbnail.extension}`;
     this.comics = results.comics.items;
     this.characters = results.characters.items;
@@ -35,13 +36,13 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     })
   };
 
-  Event.loadCharacters = results => results.map(event => new Event(event));
-  Event.loadComics = results => results.map(event => new Event(event));
+  Event.loadCharacters = results => Event.characters = results.map(event => new Event(event));
+  Event.loadComics = results => Event.comics = results.map(event => new Event(event));
 
   Event.fetchAll = (ctx, callback) => {
     console.log('ME.fetchAll function called.')
     console.log(ctx);
-    $.get(`${__API_URL__}${ctx.path}`)
+    $.get(`${__API_URL__}/events`)
       .then(object => {
         console.log('ME.fetchAll -> first get.then called.');
         let results = object.data.results;
@@ -55,7 +56,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
   Event.fetchOne = (ctx, callback) => {
     console.log('ME.fetchOne function called.')
     console.log(ctx.path);
-    $.get(`${__API_URL__}${ctx.path}`, ctx.params.id)
+    $.get(`${__API_URL__}/events/${ctx.params.id}`)
       .then(object => {
         console.log('ME.fetchOne -> first get.then called.');
         let results = object.data.results;
@@ -70,19 +71,19 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
 
   Event.fetchCharacters = (ctx) => {
     console.log('fetchCharacters function called');
-    $.get(`${__API_URL__}${ctx.path}/characters`, ctx.params.id)
+    $.get(`${__API_URL__}/events/${ctx.params.id}/characters`)
       .then(object => {
         let results = object.data.results;
-        Event.characters = Event.loadCharacters(results);
+        Event.loadCharacters(results);
       })
   }
 
   Event.fetchComics = (ctx) => {
     console.log('fetchComics function called');
-    $.get(`${__API_URL__}${ctx.path}/comics`, ctx.params.id)
+    $.get(`${__API_URL__}/events/${ctx.params.id}/comics`)
       .then(object => {
         let results = object.data.results;
-        Event.comics = Event.loadComics(results);
+        Event.loadComics(results);
       })
   }
 
