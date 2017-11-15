@@ -32,7 +32,7 @@ app.get('/events/:id', (req, res) => {
 });
 
 //Fetch comics for EventID from marvelAPI and return to Browser
-app.get('events/:id/comics', (request, response) => {
+app.get('/events/:id/comics', (request, response) => {
   let eventId = request.params.id;
   console.log(`GET results endpoint fired... eventId: ${eventId}`);
   let url = `https://gateway.marvel.com/v1/public/events/${eventId}/comics?ts=1&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c`;
@@ -47,7 +47,7 @@ app.get('events/:id/comics', (request, response) => {
 });
 
 //Fetch characters for EventID from marvelAPI and return to Browser
-app.get('events/:id/characters', (request, response) => {
+app.get('/events/:id/characters', (request, response) => {
   let eventId = request.params.id;
   console.log(`GET results endpoint fired... eventId: ${eventId}`);
   let url = `https://gateway.marvel.com/v1/public/events/${eventId}/characters?ts=1&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c`;
