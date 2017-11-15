@@ -2,20 +2,22 @@
 
 var app = app || {};
 
-const __API_URL__ = 'http://localhost:3000';
+const __API_URL__ = 'https://be-marvelous.herokuapp.com/';
 
 ((module) => {
 
   function Event (results) {
     this.id = results.id;
     this.title = results.title;
+    this.name = results.name;
     this.imgUrl = `${results.thumbnail.path}.${results.thumbnail.extension}`;
     this.comics = results.comics.items;
     this.characters = results.characters.items;
   }
-
   Event.all = [];
   Event.one = [];
+  Event.characters = [];
+  Event.comics = [];
 
   Event.loadAll = results => {
     console.log('ME.loadAll function called.');
@@ -33,7 +35,10 @@ const __API_URL__ = 'http://localhost:3000';
     })
   };
 
-  Event.fetchAll = (callback, ctx) => {
+  Event.loadCharacters = results => results.map(event => new Event(event));
+  Event.loadComics = results => results.map(event => new Event(event));
+
+  Event.fetchAll = (ctx, callback) => {
     console.log('ME.fetchAll function called.')
     console.log(ctx);
     $.get(`${__API_URL__}${ctx.path}`)
@@ -47,7 +52,7 @@ const __API_URL__ = 'http://localhost:3000';
       .catch()
   }
 
-  Event.fetchOne = (callback, ctx) => {
+  Event.fetchOne = (ctx, callback) => {
     console.log('ME.fetchOne function called.')
     console.log(ctx.path);
     $.get(`${__API_URL__}${ctx.path}`, ctx.params.id)
@@ -56,11 +61,30 @@ const __API_URL__ = 'http://localhost:3000';
         let results = object.data.results;
         console.log(results);
         Event.loadOne(results);
+        Event.fetchCharacters(ctx);
+        Event.fetchComics(ctx);
       })
       .then(callback)
       .catch()
   }
 
+  Event.fetchCharacters = (ctx) => {
+    console.log('fetchCharacters function called');
+    $.get(`${__API_URL__}${ctx.path}/characters`, ctx.params.id)
+      .then(object => {
+        let results = object.data.results;
+        Event.characters = Event.loadCharacters(results);
+      })
+  }
+
+  Event.fetchComics = (ctx) => {
+    console.log('fetchComics function called');
+    $.get(`${__API_URL__}${ctx.path}/comics`, ctx.params.id)
+      .then(object => {
+        let results = object.data.results;
+        Event.comics = Event.loadComics(results);
+      })
+  }
 
   module.Event = Event;
 })(app);

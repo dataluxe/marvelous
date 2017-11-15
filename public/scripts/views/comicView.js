@@ -26,11 +26,13 @@ var app = app || {};
     $('#main-item').empty();
     $('.tab-content').hide();
     $('#main-item').append(renderItem(app.Event.one[0]));
-    app.Event.one[0].characters.forEach(item => {
+    app.Event.characters.forEach(item => {
       $('.character-list').append(`<li>${item.name}</li>`);
+      $('.character-list').append(`<img src="${item.imgUrl}"/>`);
     })
-    app.Event.one[0].comics.forEach(item => {
+    app.Event.comics.forEach(item => {
       $('.comics-list').append(`<li>${item.name}</li>`);
+      $('.comics-list').append(`<img src="${item.imgUrl}"/>`);
     })
     $('#main-item').fadeIn();
   };
