@@ -21,19 +21,27 @@ var app = app || {};
     $('#main-list').fadeIn();
   };
 
-  comicView.initFetchOnePage = () => {
-    console.log('comicView.initFetchOnePage function called');
-    $('#main-item').empty();
-    $('.tab-content').hide();
-    $('#main-item').append(renderItem(app.Event.one[0]));
+  ////Results Page
+
+  comicView.renderCharacters = () => {
     app.Event.characters.forEach(item => {
       $('.character-list').append(`<li>${item.name}</li>`);
       $('.character-list').append(`<img src="${item.imgUrl}"/>`);
     })
+  };
+
+  comicView.renderComics = () => {
     app.Event.comics.forEach(item => {
-      $('.comics-list').append(`<li>${item.name}</li>`);
+      $('.comics-list').append(`<li>${item.title}</li>`);
       $('.comics-list').append(`<img src="${item.imgUrl}"/>`);
     })
+  };
+
+  comicView.initResultsPage = (targetEvent) => {
+    console.log('comicView.initFetchOnePage function called');
+    $('#main-item').empty();
+    $('.tab-content').hide();
+    $('#main-item').append(renderItem(targetEvent));
     $('#main-item').fadeIn();
   };
 

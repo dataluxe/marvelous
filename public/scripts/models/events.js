@@ -42,25 +42,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     })
   };
 
-  Event.loadOne = results => {
-    console.log('ME.loadOne function called.');
-    Event.one = results.map(event => {
-      console.log(event);
-      return new Event(event);
-    })
-  };
-
-  Event.loadCharacters = results => {
-    console.log(`Load Characters`);
-    Event.characters = results.map(character => new Character(character));
-    app.comicView.initFetchOnePage();
-  }
-  Event.loadComics = results => {
-    console.log(`Load Comics`);
-    Event.comics = results.map(comic => new Comic(comic));
-    app.comicView.initFetchOnePage();
-  }
-  Event.fetchAll = (ctx, callback) => {
+  Event.fetchAllEvents = (ctx, callback) => {
     console.log('ME.fetchAll function called.')
     console.log(ctx);
     $.get(`${__API_URL__}/events`)
@@ -74,19 +56,13 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
       .catch()
   }
 
-  Event.fetchOne = (ctx) => {
-    console.log('ME.fetchOne function called.')
-    console.log(ctx.path);
-    $.get(`${__API_URL__}/events/${ctx.params.id}`)
-      .then(object => {
-        console.log('ME.fetchOne -> first get.then called.');
-        let results = object.data.results;
-        console.log(results);
-        Event.loadOne(results);
-        Event.fetchCharacters(ctx);
-        Event.fetchComics(ctx);
-      })
-      .catch()
+  Event.fireResultsPage = (ctx) => {
+    console.log('ME.fetchOne function called.');
+    let eventId = ctx.params.id;
+    let targetEvent = app.Event.all.filter((e)=>e.id===eventId)
+    app.comicView.initResultsPage(targetEvent);
+    Event.fetchCharacters(ctx);
+    Event.fetchComics(ctx);
   }
 
   Event.fetchCharacters = (ctx) => {
@@ -94,7 +70,8 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     $.get(`${__API_URL__}/events/${ctx.params.id}/characters`)
       .then(object => {
         let results = object.data.results;
-        Event.loadCharacters(results);
+        Event.characters = results.map(character => new Character(character));
+        app.comicView.renderCharacters();
       })
   }
 
@@ -103,7 +80,8 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     $.get(`${__API_URL__}/events/${ctx.params.id}/comics`)
       .then(object => {
         let results = object.data.results;
-        Event.loadComics(results);
+        Event.comics = results.map(comic => new Comic(comic));
+        app.comicView.renderComics();
       })
   }
 
