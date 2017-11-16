@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
    <meta property="og:title" content="Marvelo.us App" />
    <meta property="og:type" content="webapp" />
    <meta property="og:url" content="TODO: [HEROKU LINK HERE]" />
@@ -38,6 +38,15 @@
         <ul class="comics-list"></ul>
       </article>
     </script>
+
+    <script id="event-blurb-template" type="text/x-handlebars-template">
+      <div id="event-blurb">
+        <img src="{{imgUrl}}"/>
+        <h3>{{title}}</h3>
+        <h4>{{description}}</h4>
+      </div>
+    </script>
+
   </head>
 
   <body>
@@ -59,9 +68,11 @@
         </select>
       </section> -->
       <section id="main-list" class="tab-content"></section>
+
       <section id="main-item" class="tab-content"></section>
       <section id="main-item-chars" class="tab-content"></section>
       <section id="main-item-comics" class="tab-content"></section>
+
       <section id="about" class="tab-content" style="display:none">
         <img id="about-logo" src="images/appenders.png">
         <p>BANISHED to an alien dimension by the ruthless PROFESSOR VAR-X, and his apprentice, "display:visible-Woman", this motley group of misfits must put aside their differences, and FIGHT for SURVIVIVAL.</p>

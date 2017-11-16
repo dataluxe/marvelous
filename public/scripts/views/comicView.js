@@ -12,6 +12,10 @@ var app = app || {};
     let template = Handlebars.compile($('#item-template').text());
     return template(item);
   };
+  const renderEventBlurb = function(item) {
+    let template = Handlebars.compile($('#event-blurb-template').text());
+    return template(item);
+  };
 
   comicView.initIndexPage = () => {
     console.log('comicView.initIndexPage function called');
@@ -23,26 +27,28 @@ var app = app || {};
 
   ////Results Page
 
-  comicView.renderCharacters = () => {
-    app.Event.characters.forEach(item => {
-      $('.character-list').append(`<li>${item.name}</li>`);
-      $('.character-list').append(`<img src="${item.imgUrl}"/>`);
-    })
-  };
-
-  comicView.renderComics = () => {
-    app.Event.comics.forEach(item => {
-      $('.comics-list').append(`<li>${item.title}</li>`);
-      $('.comics-list').append(`<img src="${item.imgUrl}"/>`);
-    })
-  };
-
   comicView.initResultsPage = (targetEvent) => {
-    console.log('comicView.initFetchOnePage function called');
+    console.log('comicView.renderEventBlurb function called');
+    console.log(targetEvent);
+    console.log(renderEventBlurb(targetEvent));
     $('#main-item').empty();
     $('.tab-content').hide();
-    $('#main-item').append(renderItem(targetEvent));
+    $('#main-item').append(renderEventBlurb(targetEvent));
     $('#main-item').fadeIn();
+  };
+
+  comicView.renderResultPane = (type) => {
+    type = type.toLowerCase();
+
+    let friendlyType = type.charAt(0).toUpperCase() + type.slice(1);
+
+    console.log(type, friendlyType)
+
+    $(`#main-item`).append(`<div id="${type}-results" class="result-pane"></div>`)
+    $(`#${type}-results`).append(`<h2>${type}</h2>`);
+    app.Event[`${type}`].forEach(item => {
+      $(`#${type}-results`).append(`<img src="${item.imgUrl}"/>`);
+    })
   };
 
   ////About Page
