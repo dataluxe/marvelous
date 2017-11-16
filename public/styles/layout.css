@@ -70,6 +70,11 @@ article {
   border: 1px solid black;
 }
 
+article div {
+  width: 66%;
+  text-align: center;
+}
+
 a {
   width: 33%;
 }
@@ -86,32 +91,28 @@ h3 {
   text-align: center;
 }
 
-#about {
-  text-align: center;
-}
-
-#about-logo {
-  width: 60%;
-}
-
 .bio {
-  width: 100%;
+  margin: 7%;
+  width: 98%;
   float: left;
-  min-height: 350px;
 }
 
 .bio h1 {
-  width: 100%;
-}
-
-.bio h2 {
-  width: 100%;
+  float: left;
+  clear: right;
+  padding: 10px;
 }
 
 .bio img {
   width: 10vw;
-  height: 10vw;
-  margin: 10px 0 0 0;
+}
+
+.bio h2, .bio img {
+  float: left;
+}
+
+.bio p {
+  clear: left;
 }
 
 /*RESULTS PAGE rules*/
@@ -163,6 +164,7 @@ h3 {
   }
 
   article div {
+    width: 100%;
     height: 2em;
     position: relative;
   }
@@ -176,27 +178,27 @@ h3 {
   }
 
   .bio {
+    margin: 1%;
     width: 48%;
     float: left;
-    min-height: 450px;
   }
 
   .bio h1 {
-    width: 95%;
-  }
-
-  .bio h2 {
-    width: 100%;
+    float: left;
+    clear: right;
+    padding: 10px;
   }
 
   .bio img {
-    width: 5vw;
-    height: 5vw;
-    margin: 15px 0 0 0;
+    width: 7vw;
   }
+
+  .bio h2, .bio img {
+    float: left;
+  }
+
   .bio p {
-    width: 95%;
-    padding-left: 5%;
+    clear: left;
   }
 }
 @media only screen and (min-width: 940px) {
@@ -237,30 +239,27 @@ h3 {
   }
 
   .bio {
-    width: 25%;
+    margin: 1%;
+    width: 23%;
     float: left;
-    min-height: 665px;
   }
 
   .bio h1 {
-    width: 95%;
-    font-size: 1.5em;
-  }
-
-  .bio h2 {
-    width: 100%;
-    font-size: 1.2em;
+    float: left;
+    clear: right;
+    padding: 10px;
   }
 
   .bio img {
     width: 5vw;
-    height: 5vw;
-    margin: 15px 0 0 0;
+  }
+
+  .bio h2, .bio img {
+    float: left;
   }
 
   .bio p {
-    width: 95%;
-    padding-left: 5%;
+    clear: left;
   }
 }
 @media only screen and (min-width: 1090px) {
