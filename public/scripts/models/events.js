@@ -50,9 +50,16 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     })
   };
 
-  Event.loadCharacters = results => Event.characters = results.map(character => new Character(character));
-  Event.loadComics = results => Event.comics = results.map(comic => new Comic(comic));
-
+  Event.loadCharacters = results => {
+    console.log(`Load Characters`);
+    Event.characters = results.map(character => new Character(character));
+    app.comicView.initFetchOnePage();
+  }
+  Event.loadComics = results => {
+    console.log(`Load Comics`);
+    Event.comics = results.map(comic => new Comic(comic));
+    app.comicView.initFetchOnePage();
+  }
   Event.fetchAll = (ctx, callback) => {
     console.log('ME.fetchAll function called.')
     console.log(ctx);
@@ -67,7 +74,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
       .catch()
   }
 
-  Event.fetchOne = (ctx, callback) => {
+  Event.fetchOne = (ctx) => {
     console.log('ME.fetchOne function called.')
     console.log(ctx.path);
     $.get(`${__API_URL__}/events/${ctx.params.id}`)
@@ -79,7 +86,6 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
         Event.fetchCharacters(ctx);
         Event.fetchComics(ctx);
       })
-      .then(callback)
       .catch()
   }
 
