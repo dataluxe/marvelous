@@ -11,7 +11,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     this.title = results.title;
     this.name = results.name;
     this.description = results.description;
-    this.imgUrl = `${results.thumbnail.path}.${results.thumbnail.extension}`;
+    this.imgUrl = `${results.thumbnail.path}.${results.thumbnail.extension}`.replace('http://', 'https://');
     this.comics = results.comics.items;
     this.characters = results.characters.items;
   }
