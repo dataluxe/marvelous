@@ -13,7 +13,7 @@ app.use(cors());
 
 app.get('/events', (req, res) => {
   console.log('GET request for all events');
-  const url = 'https://gateway.marvel.com/v1/public/events?ts=1&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c';
+  const url = 'https://gateway.marvel.com/v1/public/events?ts=1&limit=100&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c';
   superagent(url)
     .then(
       data => res.send(data.body),
@@ -23,7 +23,7 @@ app.get('/events', (req, res) => {
 
 app.get('/events/:id', (req, res) => {
   console.log('GET request for single event');
-  const url = `https://gateway.marvel.com/v1/public/events/${req.params.id}?ts=1&limit=100&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c`;
+  const url = `https://gateway.marvel.com/v1/public/events/${req.params.id}?ts=1&apikey=8f383650dd0864c94f8791e0fd882bba&hash=d128beebf105cf06f3b4b433ef85073c`;
   superagent(url)
     .then(
       data => res.send(data.body),
