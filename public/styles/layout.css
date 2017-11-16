@@ -86,28 +86,32 @@ h3 {
   text-align: center;
 }
 
+#about {
+  text-align: center;
+}
+
+#about-logo {
+  width: 60%;
+}
+
 .bio {
-  margin: 7%;
-  width: 98%;
+  width: 100%;
   float: left;
+  min-height: 350px;
 }
 
 .bio h1 {
-  float: left;
-  clear: right;
-  padding: 10px;
+  width: 100%;
+}
+
+.bio h2 {
+  width: 100%;
 }
 
 .bio img {
   width: 10vw;
-}
-
-.bio h2, .bio img {
-  float: left;
-}
-
-.bio p {
-  clear: left;
+  height: 10vw;
+  margin: 10px 0 0 0;
 }
 
 @media only screen and (min-width: 600px) {
@@ -146,27 +150,27 @@ h3 {
   }
 
   .bio {
-    margin: 1%;
     width: 48%;
     float: left;
+    min-height: 450px;
   }
 
   .bio h1 {
-    float: left;
-    clear: right;
-    padding: 10px;
+    width: 95%;
+  }
+
+  .bio h2 {
+    width: 100%;
   }
 
   .bio img {
-    width: 7vw;
+    width: 5vw;
+    height: 5vw;
+    margin: 15px 0 0 0;
   }
-
-  .bio h2, .bio img {
-    float: left;
-  }
-
   .bio p {
-    clear: left;
+    width: 95%;
+    padding-left: 5%;
   }
 }
 @media only screen and (min-width: 940px) {
@@ -207,27 +211,30 @@ h3 {
   }
 
   .bio {
-    margin: 1%;
-    width: 23%;
+    width: 25%;
     float: left;
+    min-height: 665px;
   }
 
   .bio h1 {
-    float: left;
-    clear: right;
-    padding: 10px;
+    width: 95%;
+    font-size: 1.5em;
+  }
+
+  .bio h2 {
+    width: 100%;
+    font-size: 1.2em;
   }
 
   .bio img {
     width: 5vw;
-  }
-
-  .bio h2, .bio img {
-    float: left;
+    height: 5vw;
+    margin: 15px 0 0 0;
   }
 
   .bio p {
-    clear: left;
+    width: 95%;
+    padding-left: 5%;
   }
 }
 @media only screen and (min-width: 1090px) {
