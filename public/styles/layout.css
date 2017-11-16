@@ -110,6 +110,32 @@ h3 {
   clear: left;
 }
 
+/*RESULTS PAGE rules*/
+
+#event-blurb {
+  width: 90%;
+  margin: auto;
+}
+#event-blurb img {
+  float:left;
+  height:20vw;
+  width:20vw;
+}
+#event-blurb h1 {}
+#event-blurb h2 {}
+#event-blurb p {}
+
+.result-pane {
+  display: inline-block;
+  width: 48%;
+  align-content: center;
+  vertical-align:top;
+}
+.result-pane img {
+  width:85%;
+  height:auto;
+}
+
 @media only screen and (min-width: 600px) {
 
   section {

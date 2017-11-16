@@ -2,14 +2,13 @@
 var app = app || {};
 
 page('/', () => page('/events'));
-page('/about', () => app.comicView.initAboutPage());
 page('/events', (ctx) => app.Event.fetchAllEvents(ctx, app.comicView.initIndexPage));
 page('/events/:id', (ctx) => app.Event.fireResultsPage(ctx));
+page('/about', () => app.comicView.initAboutPage());
 // page('/characters', );
 // page('/characters/:id', );
 // page('/series', );
 // page('/series/:id', );
 // page('/comics', );
 // page('/comics/:id', );
-
 page();

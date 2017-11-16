@@ -7,7 +7,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
 ((module) => {
 
   function Event (results) {
-    this.id = results.id;
+    this.id = parseInt(results.id, 10);
     this.title = results.title;
     this.name = results.name;
     this.description = results.description;
@@ -21,14 +21,14 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
   Event.comics = [];
 
   function Character (obj) {
-    this.id = obj.id;
+    this.id = parseInt(obj.id, 10);
     this.name = obj.name;
     this.description = obj.description || 'This character is not well-known enough to warrant a de  scription.';
     this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`.replace('http://', 'https://');
   }
 
   function Comic (obj) {
-    this.id = obj.id;
+    this.id = parseInt(obj.id, 10);
     this.title = obj.title;
     this.description = obj.description || 'No description for this comic issue... yet!';
     this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`.replace('http://', 'https://');
@@ -58,8 +58,8 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
 
   Event.fireResultsPage = (ctx) => {
     console.log('ME.fetchOne function called.');
-    let eventId = ctx.params.id;
-    let targetEvent = app.Event.all.filter((e)=>e.id===eventId)
+    let eventId = parseInt(ctx.params.id);
+    let targetEvent = app.Event.all.filter(e=>{return e.id===eventId})[0];
     app.comicView.initResultsPage(targetEvent);
     Event.fetchCharacters(ctx);
     Event.fetchComics(ctx);
@@ -71,7 +71,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
       .then(object => {
         let results = object.data.results;
         Event.characters = results.map(character => new Character(character));
-        app.comicView.renderCharacters();
+        app.comicView.renderResultPane('characters');
       })
   }
 
@@ -81,7 +81,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
       .then(object => {
         let results = object.data.results;
         Event.comics = results.map(comic => new Comic(comic));
-        app.comicView.renderComics();
+        app.comicView.renderResultPane('comics');
       })
   }
 
