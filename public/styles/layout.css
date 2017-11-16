@@ -102,7 +102,7 @@ h3 {
   width: 10vw;
 }
 
-.bio h2, img {
+.bio h2, .bio img {
   float: left;
 }
 
@@ -161,7 +161,7 @@ h3 {
     width: 7vw;
   }
 
-  .bio h2, img {
+  .bio h2, .bio img {
     float: left;
   }
 
@@ -222,7 +222,7 @@ h3 {
     width: 5vw;
   }
 
-  .bio h2, img {
+  .bio h2, .bio img {
     float: left;
   }
 
