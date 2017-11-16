@@ -211,17 +211,19 @@ h3 {
   }
 
   .bio {
-    width: 23%;
+    width: 25%;
     float: left;
     min-height: 665px;
   }
 
   .bio h1 {
     width: 95%;
+    font-size: 1.5em;
   }
 
   .bio h2 {
     width: 100%;
+    font-size: 1.2em;
   }
 
   .bio img {
