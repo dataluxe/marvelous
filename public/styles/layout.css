@@ -86,16 +86,38 @@ h3 {
   text-align: center;
 }
 
+.bio {
+  margin: 7%;
+  width: 98%;
+  float: left;
+}
+
+.bio h1 {
+  float: left;
+  clear: right;
+  padding: 10px;
+}
+
+.bio img {
+  width: 10vw;
+}
+
+.bio h2, img {
+  float: left;
+}
+
+.bio p {
+  clear: left;
+}
+
 @media only screen and (min-width: 600px) {
 
   section {
     text-align: center;
   }
-  article {
-    display: inline-block;
-  }
 
   article {
+    display: inline-block;
     width: 24.6%;
     align-items: baseline;
     margin: 0 auto;
@@ -104,8 +126,6 @@ h3 {
     float: left;
     height:250px;
   }
-
-
 
   article img {
     border-width: 0px;
@@ -123,6 +143,30 @@ h3 {
     transform: translate(0, -50%);
     width: 100%;
     right: 0%;
+  }
+
+  .bio {
+    margin: 1%;
+    width: 48%;
+    float: left;
+  }
+
+  .bio h1 {
+    float: left;
+    clear: right;
+    padding: 10px;
+  }
+
+  .bio img {
+    width: 7vw;
+  }
+
+  .bio h2, img {
+    float: left;
+  }
+
+  .bio p {
+    clear: left;
   }
 }
 @media only screen and (min-width: 940px) {
@@ -160,6 +204,30 @@ h3 {
     transform: translate(0, -50%);
     width: 100%;
     right: 0%;
+  }
+
+  .bio {
+    margin: 1%;
+    width: 23%;
+    float: left;
+  }
+
+  .bio h1 {
+    float: left;
+    clear: right;
+    padding: 10px;
+  }
+
+  .bio img {
+    width: 5vw;
+  }
+
+  .bio h2, img {
+    float: left;
+  }
+
+  .bio p {
+    clear: left;
   }
 }
 @media only screen and (min-width: 1090px) {

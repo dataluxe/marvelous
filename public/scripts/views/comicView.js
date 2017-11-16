@@ -45,6 +45,14 @@ var app = app || {};
     $('#main-item').fadeIn();
   };
 
+  ////About Page
+
+  comicView.initAboutPage = () => {
+    console.log('comicview.initAboutPage function called');
+    $('.tab-content').hide();
+    $('#about').fadeIn();
+  };
+
   // $('#dropdown').on('change', () => console.log('dropdown event handler called'));
 
   module.comicView = comicView;
