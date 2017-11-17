@@ -124,12 +124,22 @@ h3 {
   text-align: center;
   vertical-align:top;
 }
-.result-pane img {
-  width:85%;
-  height:auto;
-}
 .result-pane h2 {
   margin: 17px 7px;
+}
+
+.result-tile {
+  display:inline-block;
+  width:100%;
+  padding:1.25%;
+}
+.result-tile img {
+  width:95%;
+  height:auto;
+}
+.result-tile p {
+  display: inline;
+  width: 95%;
 }
 
 @media only screen and (min-width: 600px) {
@@ -205,6 +215,12 @@ h3 {
     font-size: 1.3em;
   }
 
+  .result-tile {
+    display:inline-block;
+    vertical-align:middle;
+    width:46%;
+    padding:1.25%;
+  }
 
 }
 @media only screen and (min-width: 940px) {
@@ -274,11 +290,11 @@ h3 {
 
   /*Results Page Styles Here*/
 
-  .result-pane img {
-    width:45%;
+  .result-tile {
+    display:inline-block;
+    width:30%;
     padding:1.25%;
   }
-
 
 }
 @media only screen and (min-width: 1090px) {
@@ -353,5 +369,11 @@ h3 {
     transform: translate(0, -50%);
     width: 100%;
     right: 0%;
+  }
+
+  .result-tile {
+    display:inline-block;
+    width:21%;
+    padding:1.25%;
   }
 }

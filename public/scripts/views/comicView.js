@@ -49,8 +49,11 @@ var app = app || {};
     $(`#${type}-results`).append(`<h2>${type}</h2>`);
 
     app.Event[`${type}`].forEach(item => {
-      $(`#${type}-results`).append(`<img src="${item.imgUrl}"/>`);
-      $(`#${type}-results:last-child`).append(`<p>${item.name}</p>`);
+      $(`#${type}-results`).append(`
+        <div class="result-tile">
+          <p class="item-name">${item.name||'-Searching-'}</p>
+          <img src="${item.imgUrl}"/>
+        </div>`);
     })
   };
 
