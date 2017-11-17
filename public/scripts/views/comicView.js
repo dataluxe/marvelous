@@ -33,15 +33,20 @@ var app = app || {};
     $('#main-item').fadeIn();
   };
 
-  comicView.renderResultPane = (type) => {
+  comicView.renderResultPane = type => {
+
     type = type.toLowerCase();
 
-    let friendlyType = type.charAt(0).toUpperCase() + type.slice(1);
-
-    console.log(type, friendlyType)
-
     $(`#main-item`).append(`<div id="${type}-results" class="result-pane"></div>`)
+
+    if (app.Event[`${type}`].length === 0) {
+      console.log('Empty-array IF fired');
+      $(`#${type}-results`).append(`<h2>No ${type} for this Event!</h2>`);
+      return;
+    }
+
     $(`#${type}-results`).append(`<h2>${type}</h2>`);
+
     app.Event[`${type}`].forEach(item => {
       $(`#${type}-results`).append(`<img src="${item.imgUrl}"/>`);
     })

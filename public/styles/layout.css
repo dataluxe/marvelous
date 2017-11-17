@@ -123,28 +123,26 @@ h3 {
 /*RESULTS PAGE rules*/
 
 #event-blurb {
-  width: 90%;
-  margin: auto;
-  padding: 1.25em 0 0;
+  display: inline-block;
+  width: 95%;
+  padding: 2% 2.5% 0;
 }
-
 #event-blurb img {
-  float:left;
-  height: 32vw;
-  width: 32vw;
-  margin: 0 16px 8px 0;
+  float: left;
+  height: 33%;
+  width: 33%;
+  margin: 0 3% 1.5% 0;
 }
-
 #event-blurb h2 {
-  margin-top: 0;
+  font-size: 6vw;
+  margin: 1.5vw 3vw;
   text-align: center;
 }
-
 #event-blurb p {
   text-align: justify;
+  font-size: 4.9vw;
   margin: 0;
 }
-
 .result-pane {
   display: inline-block;
   width: 50%;
@@ -154,6 +152,9 @@ h3 {
 .result-pane img {
   width:85%;
   height:auto;
+}
+.result-pane h2 {
+  margin: 17px 7px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -215,6 +216,21 @@ h3 {
     width: 95%;
     padding-left: 5%;
   }
+
+  #event-blurb img {
+    height:33%;
+    width:33%;
+    max-height: 265px;
+    max-width: 265px;
+  }
+  #event-blurb h2 {
+    font-size: 1.8em;
+  }
+  #event-blurb p {
+    font-size: 1.3em;
+  }
+
+
 }
 @media only screen and (min-width: 940px) {
 
@@ -279,6 +295,15 @@ h3 {
     width: 95%;
     padding-left: 5%;
   }
+
+  /*Results Page Styles Here*/
+
+  .result-pane img {
+    width:45%;
+    padding:1.25%;
+  }
+
+
 }
 @media only screen and (min-width: 1090px) {
 
