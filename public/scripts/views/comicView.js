@@ -8,10 +8,6 @@ var app = app || {};
     let template = Handlebars.compile($('#list-template').text());
     return template(list);
   };
-  const renderItem = function(item) {
-    let template = Handlebars.compile($('#item-template').text());
-    return template(item);
-  };
   const renderEventBlurb = function(item) {
     let template = Handlebars.compile($('#event-blurb-template').text());
     return template(item);
