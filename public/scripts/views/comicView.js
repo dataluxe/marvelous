@@ -50,6 +50,7 @@ var app = app || {};
 
     app.Event[`${type}`].forEach(item => {
       $(`#${type}-results`).append(`<img src="${item.imgUrl}"/>`);
+      $(`#${type}-results:last-child`).append(`<p>${item.name}</p>`);
     })
   };
 

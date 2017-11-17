@@ -85,6 +85,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
         let results = object.data.results;
         Event.comics = results.map(comic => new Comic(comic));
         app.comicView.renderResultPane('comics');
+        $('#comics-results p').hide();
       })
   }
 
