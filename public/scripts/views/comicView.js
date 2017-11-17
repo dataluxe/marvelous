@@ -18,10 +18,8 @@ var app = app || {};
     $('#event-list').empty();
     $('.tab-content').hide();
     if($('#sort-button').html() === 'Sort Alphabetically'){
-      console.log('isSorted is true');
       app.Event.allSorted.forEach(item => $('#event-list').append(renderList(item)));
     }else{
-      console.log('isSorted is false');
       app.Event.all.forEach(item => $('#event-list').append(renderList(item)));
     }
     $('#main-list').fadeIn();
@@ -31,8 +29,6 @@ var app = app || {};
 
   comicView.initResultsPage = (targetEvent) => {
     console.log('comicView.renderEventBlurb function called');
-    console.log(targetEvent);
-    console.log(renderEventBlurb(targetEvent));
     $('#main-item').empty();
     $('.tab-content').hide();
     $('#main-item').append(renderEventBlurb(targetEvent));
@@ -46,7 +42,6 @@ var app = app || {};
     $(`#main-item`).append(`<div id="${type}-results" class="result-pane"></div>`)
 
     if (app.Event[`${type}`].length === 0) {
-      console.log('Empty-array IF fired');
       $(`#${type}-results`).append(`<h2>No ${type} for this Event!</h2>`);
       return;
     }
@@ -55,6 +50,7 @@ var app = app || {};
 
     app.Event[`${type}`].forEach(item => {
       $(`#${type}-results`).append(`<img src="${item.imgUrl}"/>`);
+      $(`#${type}-results:last-child`).append(`<p>${item.name}</p>`);
     })
   };
 
@@ -66,19 +62,15 @@ var app = app || {};
     $('#about').fadeIn();
   };
 
-  // $('#dropdown').on('change', () => console.log('dropdown event handler called'));
-
   module.comicView = comicView;
 })(app);
 
 $('#sort-button').on('click', () => {
   console.log('sort button event handler clicked');
   if($('#sort-button').html() === 'Sort Alphabetically') {
-    console.log('sorting by abc');
     $('#sort-button').html('Sort by Timeline');
     app.comicView.initIndexPage();
   }else{
-    console.log('sorting by timeline');
     app.Event.sortByTime();
     $('#sort-button').html('Sort Alphabetically');
     app.comicView.initIndexPage();
