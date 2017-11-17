@@ -39,7 +39,6 @@ app.get('/events/:id/comics', (request, response) => {
   superagent(url)
     .then(
       data => {
-        console.log(data.body);
         response.send(data.body)
       },
       err => response.send(err)

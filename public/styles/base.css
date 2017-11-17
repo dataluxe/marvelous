@@ -1,0 +1,17 @@
+* {
+  /*border: 1px solid black;*/
+}
+
+body {
+  background-color: snow;
+}
+
+header {
+  z-index: 1;
+  background-color: black;
+  height: 77px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+}
