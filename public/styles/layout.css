@@ -268,7 +268,7 @@ h3 {
 
   .bio h1 {
     width: 95%;
-    height: fit-content;
+    height: auto;
     font-size: 1.5em;
   }
 
