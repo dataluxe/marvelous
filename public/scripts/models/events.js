@@ -41,27 +41,18 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     Event.allSorted.sort((a,b) => (new Date(a.startDate)) - (new Date(b.startDate)));
   }
 
-  // Event.sortByABC = () => {
-  //   console.log('sortByABC function called');
-  //   Event.all.sort((a,b) => (a.title) > (b.title));
-  // }
-
   Event.loadAll = results => {
     console.log('ME.loadAll function called.');
     Event.all = results.map(event => {
-      console.log(event);
       return new Event(event);
     })
   };
 
   Event.fetchAllEvents = (ctx, callback) => {
     console.log('ME.fetchAll function called.')
-    console.log(ctx);
     $.get(`${__API_URL__}/events`)
       .then(object => {
-        console.log('ME.fetchAll -> first get.then called.');
         let results = object.data.results;
-        console.log(results);
         Event.loadAll(results);
       })
       .then(callback)
@@ -94,6 +85,7 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
         let results = object.data.results;
         Event.comics = results.map(comic => new Comic(comic));
         app.comicView.renderResultPane('comics');
+        $('#comics-results p').hide();
       })
   }
 

@@ -1,20 +1,3 @@
-* {
-  /*border: 1px solid black;*/
-}
-
-body {
-  background-color: snow;
-}
-
-header {
-  z-index: 1;
-  background-color: black;
-  height: 77px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width:100%;
-}
 h1 {
   float: right;
   background-color: #F2282E;
@@ -90,39 +73,6 @@ h3 {
   display: inline;
   margin: 0 auto;
   text-align: center;
-}
-
-#sort-button {
-  clear: both;
-  background: #d93434;
-  background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -o-linear-gradient(top, #d93434, #b82b2b);
-  background-image: linear-gradient(to bottom, #d93434, #b82b2b);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  color: #ffffff;
-  padding: 5px 10px;
-  margin: 10px 0;
-}
-
-#sort-button:hover {
-  background: #b52828;
-  background-image: -webkit-linear-gradient(top, #b52828, #b52828);
-  background-image: -moz-linear-gradient(top, #b52828, #b52828);
-  background-image: -ms-linear-gradient(top, #b52828, #b52828);
-  background-image: -o-linear-gradient(top, #b52828, #b52828);
-  background-image: linear-gradient(to bottom, #b52828, #b52828);
-}
-
-#about {
-  text-align: center;
-}
-
-#about-logo {
-  width: 60%;
 }
 
 .bio {
@@ -302,6 +252,7 @@ h3 {
 
   .bio h1 {
     width: 95%;
+    height: fit-content;
     font-size: 1.5em;
   }
 
