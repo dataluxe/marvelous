@@ -11,19 +11,20 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     this.title = results.title;
     this.name = results.name;
     this.description = results.description;
+    this.startDate = results.start || '2037-01-01 01:00:00';
     this.imgUrl = `${results.thumbnail.path}.${results.thumbnail.extension}`.replace('http://', 'https://');
     this.comics = results.comics.items;
     this.characters = results.characters.items;
   }
   Event.all = [];
-  Event.one = [];
+  Event.allSorted = [];
   Event.characters = [];
   Event.comics = [];
 
   function Character (obj) {
     this.id = parseInt(obj.id, 10);
     this.name = obj.name;
-    this.description = obj.description || 'This character is not well-known enough to warrant a de  scription.';
+    this.description = obj.description || 'This character is not well-known enough to warrant a description.';
     this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`.replace('http://', 'https://');
   }
 
@@ -33,6 +34,17 @@ const __API_URL__ = 'https://be-marvelous.herokuapp.com';
     this.description = obj.description || 'No description for this comic issue... yet!';
     this.imgUrl = `${obj.thumbnail.path}.${obj.thumbnail.extension}`.replace('http://', 'https://');
   }
+
+  Event.sortByTime = () => {
+    console.log('sortByTime function called');
+    Event.allSorted = Array.from(Event.all);
+    Event.allSorted.sort((a,b) => (new Date(a.startDate)) - (new Date(b.startDate)));
+  }
+
+  // Event.sortByABC = () => {
+  //   console.log('sortByABC function called');
+  //   Event.all.sort((a,b) => (a.title) > (b.title));
+  // }
 
   Event.loadAll = results => {
     console.log('ME.loadAll function called.');

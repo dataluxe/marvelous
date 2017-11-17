@@ -15,9 +15,15 @@ var app = app || {};
 
   comicView.initIndexPage = () => {
     console.log('comicView.initIndexPage function called');
-    $('#main-list').empty();
+    $('#event-list').empty();
     $('.tab-content').hide();
-    app.Event.all.forEach(item => $('#main-list').append(renderList(item)));
+    if($('#sort-button').html() === 'Sort Alphabetically'){
+      console.log('isSorted is true');
+      app.Event.allSorted.forEach(item => $('#event-list').append(renderList(item)));
+    }else{
+      console.log('isSorted is false');
+      app.Event.all.forEach(item => $('#event-list').append(renderList(item)));
+    }
     $('#main-list').fadeIn();
   };
 
@@ -59,3 +65,17 @@ var app = app || {};
 
   module.comicView = comicView;
 })(app);
+
+$('#sort-button').on('click', () => {
+  console.log('sort button event handler clicked');
+  if($('#sort-button').html() === 'Sort Alphabetically') {
+    console.log('sorting by abc');
+    $('#sort-button').html('Sort by Timeline');
+    app.comicView.initIndexPage();
+  }else{
+    console.log('sorting by timeline');
+    app.Event.sortByTime();
+    $('#sort-button').html('Sort Alphabetically');
+    app.comicView.initIndexPage();
+  }
+});
