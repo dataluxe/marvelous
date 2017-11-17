@@ -7,6 +7,7 @@ body {
 }
 
 header {
+  z-index: 1;
   background-color: black;
   height: 77px;
   position: fixed;
@@ -147,27 +148,38 @@ h3 {
 /*RESULTS PAGE rules*/
 
 #event-blurb {
-  width: 90%;
-  margin: auto;
+  display: inline-block;
+  width: 95%;
+  padding: 2% 2.5% 0;
 }
 #event-blurb img {
-  float:left;
-  height:20vw;
-  width:20vw;
+  float: left;
+  height: 33%;
+  width: 33%;
+  margin: 0 3% 1.5% 0;
 }
-#event-blurb h1 {}
-#event-blurb h2 {}
-#event-blurb p {}
-
+#event-blurb h2 {
+  font-size: 6vw;
+  margin: 1.5vw 3vw;
+  text-align: center;
+}
+#event-blurb p {
+  text-align: justify;
+  font-size: 4.9vw;
+  margin: 0;
+}
 .result-pane {
   display: inline-block;
-  width: 48%;
-  align-content: center;
+  width: 50%;
+  text-align: center;
   vertical-align:top;
 }
 .result-pane img {
   width:85%;
   height:auto;
+}
+.result-pane h2 {
+  margin: 17px 7px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -229,6 +241,21 @@ h3 {
     width: 95%;
     padding-left: 5%;
   }
+
+  #event-blurb img {
+    height:33%;
+    width:33%;
+    max-height: 265px;
+    max-width: 265px;
+  }
+  #event-blurb h2 {
+    font-size: 1.8em;
+  }
+  #event-blurb p {
+    font-size: 1.3em;
+  }
+
+
 }
 @media only screen and (min-width: 940px) {
 
@@ -293,6 +320,15 @@ h3 {
     width: 95%;
     padding-left: 5%;
   }
+
+  /*Results Page Styles Here*/
+
+  .result-pane img {
+    width:45%;
+    padding:1.25%;
+  }
+
+
 }
 @media only screen and (min-width: 1090px) {
 
